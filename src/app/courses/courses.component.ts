@@ -4,9 +4,10 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-courses',
   template: `
-    <button class='btn btn-primary'>save</button>
+    <button class='btn btn-primary' [class.active]="isActive">save</button>
   `
 })
 export class CoursesComponent {
 
+  isActive = false;
 }
