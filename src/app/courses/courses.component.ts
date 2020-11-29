@@ -1,24 +1,21 @@
+import { SummaryPipe } from './../summary.pipe';
 import { CoursesService } from './../courses.service';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-courses',
   template: `
-    <p>{{course.title | uppercase}}</p>
-    <p>{{course.rating | number: '1.2-2'}}</p>
-    <p>{{course.students | number}}</p>
-    <p>{{course.price | currency}}</p>
-    <p>{{course.releaseDate | date}}</p>
+    <p>{{text | summary: 500}}</p>
+
   `
 })
 export class CoursesComponent {
 
-  course = {
-    title: 'The complete Angular course',
-    rating: 4.9745,
-    students: 30123,
-    price: 190.95,
-    releaseDate: new Date(2016, 3, 1)
-  };
+ text = `
+ For more straightforward sizing in CSS, we switch the global box-sizing value from content-box to border-box. This ensures padding does not affect the final computed width of an element,
+ but it can cause problems with some third party software like Google Maps and Google Custom Search Engine.
+
+On the rare occasion you need to override it, use something like the following Lorem
+ `;
 
 }
