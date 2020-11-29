@@ -9,5 +9,9 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 })
 export class AppComponent {
   title = 'mosh-trainning';
-  faCoffee = faCoffee;
+
+  post = {
+    title: 'Meu primeiro post',
+    isFavorite: true
+  }
 }
