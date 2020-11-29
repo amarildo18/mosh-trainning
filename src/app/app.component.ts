@@ -13,5 +13,10 @@ export class AppComponent {
   post = {
     title: 'Meu primeiro post',
     isFavorite: true
+  };
+
+  isFavoriteChanged(): void{
+
+    console.log('isFavorite has changed...');
   }
 }
