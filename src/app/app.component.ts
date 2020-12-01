@@ -9,6 +9,7 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 })
 export class AppComponent {
   title = 'mosh-trainning';
+  viewMode = 'map';
 
   post = {
     title: 'Meu primeiro post',
