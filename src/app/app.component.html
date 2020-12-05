@@ -1,23 +1,7 @@
 <!-- <app-courses></app-courses> -->
 <!-- <app-authors></app-authors> -->
 <!-- <app-favorite [isFavorite]="post.isFavorite" (isFavoritechange)="isFavoriteChanged($event)"></app-favorite> -->
-  <ul class="nav nav-pills">
-    <li class="active">
-      <a href="#" (click)="viewMode = 'map'">Map view</a>
-    </li>
-    <li class="active">
-      <a href="#" (click)="viewMode = 'list'">List view</a>
-    </li>
-  <div [ngSwitch]="viewMode">
-    <div *ngSwitchCase="'map'">
-      <p>Map view content</p>
-    </div>
-    <div *ngSwitchCase="'list'">
-      <p>List view content</p>
-    </div>
-    <div *ngSwitchDefault>
-      <p>Default view content</p>
-    </div>
-  </div>
 
 
+
+<input type="text" appInputFormat [format]="'uppercase'">

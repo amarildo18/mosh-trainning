@@ -11,6 +11,7 @@ import { AuthorsComponent } from './authors/authors.component';
 import { FormsModule } from '@angular/forms';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { BootstrapPanelComponent } from './bootstrap-panel/bootstrap-panel.component';
+import { InputFormatDirective } from './directives/input-format.directive';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { BootstrapPanelComponent } from './bootstrap-panel/bootstrap-panel.compo
     AuthorsComponent,
     SummaryPipe,
     FavoriteComponent,
-    BootstrapPanelComponent
+    BootstrapPanelComponent,
+    InputFormatDirective
   ],
   imports: [
     BrowserModule,
