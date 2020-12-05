@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { BootstrapPanelComponent } from './bootstrap-panel/bootstrap-panel.component';
 import { InputFormatDirective } from './directives/input-format.directive';
+import { ZippyComponent } from './zippy/zippy.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { InputFormatDirective } from './directives/input-format.directive';
     SummaryPipe,
     FavoriteComponent,
     BootstrapPanelComponent,
-    InputFormatDirective
+    InputFormatDirective,
+    ZippyComponent
   ],
   imports: [
     BrowserModule,
