@@ -1,0 +1,25 @@
+<div class="container">
+  <form [formGroup]="oForm">
+    <div class="form-group">
+      <label for="username">username</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="username">
+      <div class="alert alert-danger" *ngIf="username.touched && username.invalid">
+        Este campo é obrigatório
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="">password</label>
+      <input type="text"
+             class="form-control"
+             formControlName="password">
+             <div class="alert alert-danger" *ngIf="password.touched && password.invalid">
+              Este campo é obrigatório
+            </div>
+    </div>
+    <button class="btn btn-primary">signup</button>
+  </form>
+
+</div>
