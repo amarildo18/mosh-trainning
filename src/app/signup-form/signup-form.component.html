@@ -7,7 +7,8 @@
         class="form-control"
         formControlName="username">
       <div class="alert alert-danger" *ngIf="username.touched && username.invalid">
-        Este campo é obrigatório
+        <div *ngIf="username.errors.required">Este campo é obrigatório</div>
+        <div *ngIf="username.errors.minlength">No monimo {{username.errors.minlength.requiredLength}} caracteres exigidos</div>
       </div>
     </div>
     <div class="form-group">
