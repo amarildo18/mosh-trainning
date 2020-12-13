@@ -1,5 +1,6 @@
 <div class="container">
-  <form [formGroup]="oForm">
+  <form [formGroup]="oForm" (ngSubmit)="login()">
+    <div class="alert alert-danger" *ngIf="oForm.errors">username or password is invalid</div>
     <div class="form-group">
       <label for="username">username</label>
       <input

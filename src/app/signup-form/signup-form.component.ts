@@ -18,6 +18,13 @@ export class SignupFormComponent {
     password: new FormControl('', Validators.required)
   })
 
+  login(){
+
+    this.oForm.setErrors({
+      logiError: true
+    })
+  }
+
   get username(){
     return this.oForm.get('username');
   }
