@@ -6,6 +6,7 @@
         type="text"
         class="form-control"
         formControlName="username">
+        <div *ngIf="username.pending">Validando exclusividade...</div>
       <div class="alert alert-danger" *ngIf="username.touched && username.invalid">
         <div *ngIf="username.errors.required">Este campo é obrigatório</div>
         <div *ngIf="username.errors.cannotContainSpace">Username não pode conter espaço</div>
