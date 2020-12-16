@@ -16,6 +16,10 @@ import { ZippyComponent } from './zippy/zippy.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { NewCourseComponent } from './new-course/new-course.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { PostsComponent } from './components/posts/posts.component';
+
+import {HttpClient, HttpClientModule} from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -31,12 +35,15 @@ import { NewCourseComponent } from './new-course/new-course.component';
     ContactFormComponent,
     SignupFormComponent,
     NewCourseComponent,
+    ChangePasswordComponent,
+    PostsComponent,
 
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     CoursesService,
