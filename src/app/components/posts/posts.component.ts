@@ -27,6 +27,10 @@ export class PostsComponent implements OnInit {
         post['id'] = response['id'];
         this.posts.splice(0,0,post);
         input.value = '';
+      },
+      error => {
+        alert('Um erro inesperado aconteceu');
+        console.log(error);
       })
   }
 
@@ -35,6 +39,10 @@ export class PostsComponent implements OnInit {
     this.postService.updatePost(post)
       .subscribe(response => {
         console.log(response);
+      },
+      error => {
+        alert('Um erro inesperado aconteceu');
+        console.log(error);
       })
   }
 
@@ -43,7 +51,12 @@ export class PostsComponent implements OnInit {
     .subscribe(response => {
       let index = this.posts.indexOf(post);
       this.posts.splice(index,1);
-    })
+    },
+    error => {
+      alert('Um erro inesperado aconteceu');
+      console.log(error);
+    }
+    )
   }
 
   ngOnInit(): void {
@@ -52,6 +65,10 @@ export class PostsComponent implements OnInit {
       response => {
         this.posts = response;
         console.log(response);
+      },
+      error => {
+        alert('Um erro inesperado aconteceu');
+        console.log(error);
       }
     )
   }
