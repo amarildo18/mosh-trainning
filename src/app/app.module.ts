@@ -1,9 +1,10 @@
+import { AppErrorHandler } from './commom/app-error-handler';
 import { SummaryPipe } from './summary.pipe';
 import { AuthorsService } from './authors.service';
 import { CoursesService } from './courses.service';
 import { CoursesComponent } from './courses/courses.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { CourseComponent } from './course/course.component';
@@ -43,11 +44,13 @@ import {HttpClient, HttpClientModule} from '@angular/common/http'
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+
   ],
   providers: [
     CoursesService,
-    AuthorsService
+    AuthorsService,
+    {provide: ErrorHandler, useClass: AppErrorHandler}
   ],
   bootstrap: [AppComponent]
 })

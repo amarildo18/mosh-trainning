@@ -36,8 +36,7 @@ export class PostsComponent implements OnInit {
           // this.form.setErrors( error.originalError);
         }
         else{
-          alert('Um erro inesperado aconteceu');
-          console.log(error);
+          throw error;
         }
 
       })
@@ -48,11 +47,8 @@ export class PostsComponent implements OnInit {
     this.postService.updatePost(post)
       .subscribe(response => {
         console.log(response);
-      },
-      error => {
-        alert('Um erro inesperado aconteceu');
-        console.log(error);
-      })
+      }
+    )
   }
 
   deletePost(post:any){
@@ -65,10 +61,7 @@ export class PostsComponent implements OnInit {
       if(error instanceof NotFoundError){
         alert('Este post já foi removido');
       }
-      else{
-        alert('Um erro inesperado aconteceu');
-        console.log(error);
-      }
+      else throw error;
     }
     )
   }
@@ -80,10 +73,10 @@ export class PostsComponent implements OnInit {
         this.posts = response;
         console.log(response);
       },
-      error => {
-        alert('Um erro inesperado aconteceu');
-        console.log(error);
-      }
+      // error => {
+      //   alert('Um erro inesperado aconteceu');
+      //   console.log(error);
+      // }
     )
   }
 
