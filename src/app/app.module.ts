@@ -50,7 +50,7 @@ import {HttpClient, HttpClientModule} from '@angular/common/http'
   providers: [
     CoursesService,
     AuthorsService,
-    {provide: ErrorHandler, useClass: AppErrorHandler}
+    // {provide: ErrorHandler, useClass: AppErrorHandler}
   ],
   bootstrap: [AppComponent]
 })
