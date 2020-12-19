@@ -28,9 +28,15 @@ export class PostsComponent implements OnInit {
         this.posts.splice(0,0,post);
         input.value = '';
       },
-      error => {
-        alert('Um erro inesperado aconteceu');
-        console.log(error);
+      (error: Response) => {
+        if(error.status === 400){
+          // this.form.setErrors( error.json());
+        }
+        else{
+          alert('Um erro inesperado aconteceu');
+          console.log(error);
+        }
+
       })
   }
 
@@ -52,9 +58,14 @@ export class PostsComponent implements OnInit {
       let index = this.posts.indexOf(post);
       this.posts.splice(index,1);
     },
-    error => {
-      alert('Um erro inesperado aconteceu');
-      console.log(error);
+    (error: Response) => {
+      if(error.status === 404){
+        alert('Este post já foi removido');
+      }
+      else{
+        alert('Um erro inesperado aconteceu');
+        console.log(error);
+      }
     }
     )
   }
