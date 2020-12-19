@@ -1,3 +1,4 @@
+import { GithubFollowersService } from './services/github-followers.service';
 import { AppErrorHandler } from './commom/app-error-handler';
 import { SummaryPipe } from './summary.pipe';
 import { AuthorsService } from './authors.service';
@@ -20,7 +21,13 @@ import { NewCourseComponent } from './new-course/new-course.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { PostsComponent } from './components/posts/posts.component';
 
-import {HttpClient, HttpClientModule} from '@angular/common/http'
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { GithubFollowersComponent } from './github-followers/github-followers.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { HomeComponent } from './home/home.component';
+import { GithubProfileComponent } from './github-profile/github-profile.component';
+import { NotFoundComponent } from './not-found/not-found.component'
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -38,6 +45,11 @@ import {HttpClient, HttpClientModule} from '@angular/common/http'
     NewCourseComponent,
     ChangePasswordComponent,
     PostsComponent,
+    GithubFollowersComponent,
+    NavbarComponent,
+    HomeComponent,
+    GithubProfileComponent,
+    NotFoundComponent,
 
   ],
   imports: [
@@ -45,11 +57,34 @@ import {HttpClient, HttpClientModule} from '@angular/common/http'
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    RouterModule.forRoot([
+      {
+        path: '',
+        component: HomeComponent
+      },
+      {
+        path: 'followers/:id',
+        component: GithubProfileComponent
+      },
+      {
+        path: 'followers',
+        component: GithubFollowersComponent
+      },
+      {
+        path: 'posts',
+        component: PostsComponent
+      },
+      {
+        path: '**',
+        component: NotFoundComponent
+      }
+    ])
 
   ],
   providers: [
     CoursesService,
     AuthorsService,
+    GithubFollowersService
     // {provide: ErrorHandler, useClass: AppErrorHandler}
   ],
   bootstrap: [AppComponent]
