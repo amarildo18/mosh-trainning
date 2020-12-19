@@ -1,3 +1,6 @@
+import { BadRequestError } from './../../commom/bad-request-error';
+import { NotFoundError } from './../../commom/not-found-error';
+import { AppError } from './../../commom/app-error';
 import { PostService } from './../../services/post.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
@@ -28,9 +31,9 @@ export class PostsComponent implements OnInit {
         this.posts.splice(0,0,post);
         input.value = '';
       },
-      (error: Response) => {
-        if(error.status === 400){
-          // this.form.setErrors( error.json());
+      (error: AppError) => {
+        if(error instanceof BadRequestError){
+          // this.form.setErrors( error.originalError);
         }
         else{
           alert('Um erro inesperado aconteceu');
@@ -58,8 +61,8 @@ export class PostsComponent implements OnInit {
       let index = this.posts.indexOf(post);
       this.posts.splice(index,1);
     },
-    (error: Response) => {
-      if(error.status === 404){
+    (error: AppError) => {
+      if(error instanceof NotFoundError){
         alert('Este post já foi removido');
       }
       else{
